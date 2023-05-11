@@ -10,7 +10,6 @@ body {
 
 section {
     display: flex;
-    height: 300px;
     font-size: 20px;
     flex-wrap: wrap;
 }
@@ -40,64 +39,77 @@ footer {
 @media all and (min-width: 992px) {
 	section {
         display: flex;
-        flex-direction: row;
         align-items: center;
-    }
-
-    p {
-        order: 2;
-        flex: 100%;
+        flex-wrap: wrap;
     }
 
     .aside-left {
+        flex-basis: 15%;
         order: 1;
-        flex: 100%;
+    }
+
+    p {
+        flex-basis: 70%;
+        order: 2;
     }
 
     .aside-right {
+        flex-basis: 15%;
         order: 3;
-        flex: 100%;
+    }
+
+    p, .aside-left, .aside-right {
+        height: 300px;
     }
 
     footer {
-		width: 100%;
+		flex-basis: 100%;
 	}
 }
 
 @media all and (min-width: 768px) and (max-width: 992px) {
     section {
-        flex-direction: row;
         flex-wrap: wrap;
 	}
+
     p {
-        order: 2;
-        flex-basis: 100%;
-    }
-    .aside-left {
+        flex-basis: 80%;
         order: 1;
-        flex-basis: 100%;
     }
+
     .aside-right {
-        order: 3;
+        flex-basis: 20%;
+        order: 2;
+    }
+
+    .aside-left {
         flex-basis: 100%;
+        order: 3;
+    }
+
+    p, .aside-left, .aside-right {
+        height: 300px;
     }
 }
 
 @media all and (max-width: 768px) {
-	p {
-		order: -2;
-	}
-    
-    p, .aside-left, .aside-right {
-        flex: 33%;
-    }
-
-    }
     section {
         flex-direction: column;
+        height: 500px;
+    }
+    
+    p {
+        flex-basis: 33.33%;
+		order: 1;
+	}
+
+    .aside-left {
+        flex-basis: 33.33%;
+        order: 2;
     }
 
-    footer {
-        width: 100%;
+    .aside-right {
+        flex-basis: 33.33%;
+        order: 3;
     }
 }
